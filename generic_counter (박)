@@ -1,0 +1,30 @@
+module Generic_counter #(
+  parameter COUNTER_WIDTH = 32,
+  parameter COUNT_MAX = 99999
+  )(
+  input CLK,
+  input RESET,
+  input ENABLE,
+                
+  output reg [COUNTER_WIDTH-1:0] COUNT,
+  output reg TRIG_OUT
+  );
+  
+  always @(posedge CLK or posedge RESET) begin //{
+    if (RESET) begin
+      TRIG_OUT <= 1'b0;
+      COUNT <= 32'b0;
+    end
+    else if(ENABLE) begin
+      if(COUNT == COUNT_MAX) begin
+          TRIG_OUT <= 1'b1;
+          COUNT <= 32'b0;
+        end
+      else begin
+        TRIG_OUT <= 1'b0;
+        COUNT <= COUNT + 1'b1;
+      end
+    end
+        
+  end //}
+endmodule
