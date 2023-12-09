@@ -1,22 +1,22 @@
 `timescale 1ns/1ns
 
-module tb_snake_v1;
+module tb_snake;
 	
 	//clock
 	reg CLK;
 
 // top
 	//Board base clock, Reset button, Direction button
-	reg CLK, RESET, LEFT, RIGHT, UP, DOWN;
-	wire [3:0] OUTPUT_R_VGA, [3:0] OUTPUT_G_VGA, [3:0] OUTPUT_B_VGA;
+	reg CLK_TOP, RESET_TOP, LEFT_TOP, RIGHT_TOP, UP_TOP, DOWN_TOP;
+	wire [3:0] OUT_R_VGA, [3:0] OUT_G_VGA, [3:0] OUT_B_VGA;
 	//VGA Sync
-  	reg OUTPUT_HS, OUTPUT_VS;
+  	reg OUT_HS, OUT_VS;
 	//7-seg
-	reg [1:0] OUTPUT_DIGIT, [7:0] OUTPUT_SEG;
+	reg [1:0] OUT_DIGIT, [7:0] OUT_SEG;
 
-	//Module instantiation
-	top top(.CLK(CLK), .RESET(RESET), .LEFT(LEFT), .RIGHT(RIGHT), .UP(UP), .DOWN(DOWN));
-// module 2
+// snake_control
+	reg CLK_SNAKE,RESET_SNAKE, [1:0] M_STATE_SNAKE, [1:0] N_STATE_SNAKE, [9:0] X_ADDR_SNAKE, [8:0] Y_ADDR_SNAKE, [14:0] RND_ADDR_SNAKE;
+	wire[11:0] COLOUR_IN_SNAKE, TARGET_ATE_SNAKE;
 
 // module 3
 
@@ -24,6 +24,8 @@ module tb_snake_v1;
 
 // module ...
 
+//Module instantiation
+	top top(.CLK(CLK), .RESET(RESET), .LEFT(LEFT), .RIGHT(RIGHT), .UP(UP), .DOWN(DOWN));
 
 
 
