@@ -18,4 +18,5 @@ module Clock_Scaler(clk, scale, new_clk);
          new_clk <= new_clk + 1;
       end
    end
+
 endmodule
