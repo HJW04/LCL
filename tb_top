@@ -23,9 +23,8 @@ module tb_snake;
   	wire [7:0] RAND_NUM_RANDOM_GENERATOR;
 
 // move
-	reg CLK, RESET, LEFT, RIGHT, UP, DOWN,
-  
-  output [1:0] DIR
+	reg CLK_MOVE, RESET_MOVE, LEFT_MOVE, RIGHT_MOVE, UP_MOVE, DOWN_MOVE;
+  	wire [1:0] OUT_DIR_MOVE;
 
 // module ...
 
