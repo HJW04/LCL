@@ -18,9 +18,14 @@ module tb_snake;
 	reg CLK_SNAKE,RESET_SNAKE, [1:0] M_STATE_SNAKE, [1:0] N_STATE_SNAKE, [9:0] X_ADDR_SNAKE, [8:0] Y_ADDR_SNAKE, [14:0] RND_ADDR_SNAKE;
 	wire[11:0] COLOUR_IN_SNAKE, TARGET_ATE_SNAKE;
 
-// module 3
+// random_generator
+	input CLK_RANDOM_GENERATOR, RESET_RANDOM_GENERATOR;
+  	wire [7:0] RAND_NUM_RANDOM_GENERATOR;
 
-// module 4
+// move
+	reg CLK, RESET, LEFT, RIGHT, UP, DOWN,
+  
+  output [1:0] DIR
 
 // module ...
 
