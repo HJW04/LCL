@@ -1,6 +1,6 @@
 `timescale 1ns/1ns
 
-module tb_snake;
+module tb_top;
 	
 	//clock
 	reg CLK;
@@ -22,38 +22,10 @@ module tb_snake;
 	input CLK_RANDOM_GENERATOR, RESET_RANDOM_GENERATOR;
   	wire [7:0] RAND_NUM_RANDOM_GENERATOR;
 
-// move
-	reg CLK_MOVE, RESET_MOVE, LEFT_MOVE, RIGHT_MOVE, UP_MOVE, DOWN_MOVE;
-  	wire [1:0] OUT_DIR_MOVE;
-
 // module ...
 
 //Module instantiation
 	top top(.CLK(CLK), .RESET(RESET), .LEFT(LEFT), .RIGHT(RIGHT), .UP(UP), .DOWN(DOWN));
-
-
-
-
-  input LEFT,
-  input RIGHT,
-  input UP,
-  input DOWN,
-  
-  //OUTPUT
-  
-  //VGA RGB color
-  output [3:0] vga_r,
-  output [3:0] vga_g,
-  output [3:0] vga_b,
-  //VGA Sync
-  output hs,
-  output vs,
-  //7-seg
-  output [1:0] digit,
-  output [7:0] seg
-  
-  );
-
 
 	//4:2 Priority encoder
 	//Fill this out
@@ -94,7 +66,6 @@ module tb_snake;
 		  #10 {D_P_4_TO_2, C_P_4_TO_2, B_P_4_TO_2, A_P_4_TO_2} = count;
 
 	end
-	
 	
 endmodule
 
