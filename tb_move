@@ -1,45 +1,40 @@
 `timescale 1ns/1ns
 
-module tb_snake;
+module tb_move;
 
     // module declaration
 
-    //clock
-	  reg CLK;
+    	//clock
+	reg CLK;
 
-    // move
-	  reg CLK_MOVE, RESET_MOVE, LEFT_MOVE, RIGHT_MOVE, UP_MOVE, DOWN_MOVE;
+    	// move
+	reg CLK_MOVE, RESET_MOVE, LEFT_MOVE, RIGHT_MOVE, UP_MOVE, DOWN_MOVE;
   	wire [1:0] OUT_DIR_MOVE;
 
-    // module ...
-
     //Module instantiation
-	  move move(.CLK(CLK_MOVE), .RESET(RESET_MOVE), .LEFT(LEFT_MOVE), .RIGHT(RIGHT_MOVE), .UP(UP_MOVE), .DOWN(DOWN_MOVE));
+	move move(.CLK(CLK_MOVE), .RESET(RESET_MOVE), .LEFT(LEFT_MOVE), .RIGHT(RIGHT_MOVE), .UP(UP_MOVE), .DOWN(DOWN_MOVE));
 
-
-
-	
-	  initial
-	  begin
-		    CLK_MOVE = 1'b0, RESET_MOVE = 1'b0, LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
-	  end
+	initial
+	begin
+		CLK_MOVE = 1'b0, RESET_MOVE = 1'b0, LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
+	end
 		 
-		
+	initial
+	begin
 
-    // Test pattern for 4:2 Encoder
+		// Test pattern for 4:2 Encoder
 		#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b1;
-    #10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b1, DOWN_MOVE = 1'b0;
-    #10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b1, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
-    #10 LEFT_MOVE = 1'b1, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
+	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b1, DOWN_MOVE = 1'b0;
+	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b1, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
+	    	#10 LEFT_MOVE = 1'b1, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
 
-    #20 RESET_MOVE = 1'b1;
-
-    #10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b1;
-    #10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b1, DOWN_MOVE = 1'b0;
-    #10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b1, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
-    #10 LEFT_MOVE = 1'b1, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
+	    	#20 RESET_MOVE = 1'b1;
+	
+	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b1;
+	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b1, DOWN_MOVE = 1'b0;
+	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b1, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
+	    	#10 LEFT_MOVE = 1'b1, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
 		
 	end
-	
 	
 endmodule
