@@ -27,7 +27,6 @@ module tb_top;
 	begin	
 		 
 		 // Test pattern for top
-		
 
 	end
 	
