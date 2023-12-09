@@ -48,22 +48,8 @@ module tb_top;
 	initial 
 	begin	
 		 
-		 // Test pattern for 4:2 Encoder
-		#10 A_4_TO_2 = 1'b0; B_4_TO_2 = 1'b0; C_4_TO_2 = 1'b0; D_4_TO_2 = 1'b1;	 
-		#10 A_4_TO_2 = 1'b0; B_4_TO_2 = 1'b0; C_4_TO_2 = 1'b1; D_4_TO_2 = 1'b0;	
-		#10 A_4_TO_2 = 1'b0; B_4_TO_2 = 1'b1; C_4_TO_2 = 1'b0; D_4_TO_2 = 1'b0;	
-		#10 A_4_TO_2 = 1'b1; B_4_TO_2 = 1'b0; C_4_TO_2 = 1'b0; D_4_TO_2 = 1'b0;	
+		 // Test pattern for top
 		
-		#90 //delay to border the test of 2:4 Decoder
-		#10 A_2_TO_4 = 1'b0; B_2_TO_4 = 1'b0;
-		#10 A_2_TO_4 = 1'b0; B_2_TO_4 = 1'b1;
-		#10 A_2_TO_4 = 1'b1; B_2_TO_4 = 1'b0;
-		#10 A_2_TO_4 = 1'b1; B_2_TO_4 = 1'b1;
-		
-		#90 //delay to border the test of 4:2 Priority encoder
-		//Fill this out
-		for (count = 0; count <15; count = count +1)
-		  #10 {D_P_4_TO_2, C_P_4_TO_2, B_P_4_TO_2, A_P_4_TO_2} = count;
 
 	end
 	
