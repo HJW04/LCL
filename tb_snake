@@ -16,6 +16,17 @@ module tb_snake_v1;
 
 	//Module instantiation
 	top top(.CLK(CLK), .RESET(RESET), .LEFT(LEFT), .RIGHT(RIGHT), .UP(UP), .DOWN(DOWN));
+// module 2
+
+// module 3
+
+// module 4
+
+// module ...
+
+
+
+
 
   input LEFT,
   input RIGHT,
