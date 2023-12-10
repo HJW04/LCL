@@ -25,7 +25,7 @@ module tb_move;
 		 
 	initial
 	begin
-		// Test pattern for 4:2 Encoder
+		// Test pattern for move
 		#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b1;
 	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b1, DOWN_MOVE = 1'b0;
 	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b1, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
