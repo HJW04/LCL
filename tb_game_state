@@ -1,3 +1,4 @@
+
 `timescale 1ns/1ns
 module tb_game_state;
 
@@ -20,7 +21,7 @@ module tb_game_state;
 
     //Module instantiation
 
-      	game_state game_state (.CLK(CLK_GAME_STATE), .RESET(RESET_GAME_STATE), .LEFT(LEFT_GAME_STATE), .RIGHT(RIGHT_GAME_STATE), .UP(UP_GAME_STATE), .DOWN(DOWN_GAME_STATE), .SIZE(SIZE_GAME_STATE), .GAME_STATE(OUT_GAME_STATE);
+      	game_state game_state (.CLK(CLK_GAME_STATE), .RESET(RESET_GAME_STATE), .LEFT(LEFT_GAME_STATE), .RIGHT(RIGHT_GAME_STATE), .UP(UP_GAME_STATE), .DOWN(DOWN_GAME_STATE), .SIZE(SIZE_GAME_STATE), .GAME_STATE(OUT_GAME_STATE));
       
       
       
@@ -30,7 +31,9 @@ module tb_game_state;
         		begin
         			  #10 CLK = !CLK;
         		end
-        		CLK_GAME_STATE = 1'b0, RESET_GAME_STATE = 1'b0, LEFT_GAME_STATE = 1'b0, RIGHT_GAME_STATE = 1'b0, UP_GAME_STATE = 1'b0, DOWN_GAME_STATE = 1'b0, SIZE_GAME_STATE = 0;
+        		CLK_GAME_STATE = 1'b0; RESET_GAME_STATE = 1'b0;
+        		LEFT_GAME_STATE = 1'b0; RIGHT_GAME_STATE = 1'b0; UP_GAME_STATE = 1'b0; DOWN_GAME_STATE = 1'b0;
+        		SIZE_GAME_STATE = 0;
       	end
       
       
@@ -39,10 +42,10 @@ module tb_game_state;
       	begin	
       		 
       		// Test pattern for game_state
-      		#10 LEFT_GAME_STATE = 1'b0, RIGHT_GAME_STATE = 1'b0, UP_GAME_STATE = 1'b0, DOWN_GAME_STATE = 1'b1;
-		#10 LEFT_GAME_STATE = 1'b0, RIGHT_GAME_STATE = 1'b0, UP_GAME_STATE = 1'b1, DOWN_GAME_STATE = 1'b0;
-              	#10 LEFT_GAME_STATE = 1'b0, RIGHT_GAME_STATE = 1'b1, UP_GAME_STATE = 1'b0, DOWN_GAME_STATE = 1'b0;
-              	#10 LEFT_GAME_STATE = 1'b1, RIGHT_GAME_STATE = 1'b0, UP_GAME_STATE = 1'b0, DOWN_GAME_STATE = 1'b0;
+      		#10 LEFT_GAME_STATE = 1'b0; RIGHT_GAME_STATE = 1'b0; UP_GAME_STATE = 1'b0; DOWN_GAME_STATE = 1'b1;
+		    #10 LEFT_GAME_STATE = 1'b0; RIGHT_GAME_STATE = 1'b0; UP_GAME_STATE = 1'b1; DOWN_GAME_STATE = 1'b0;
+		    #10 LEFT_GAME_STATE = 1'b0; RIGHT_GAME_STATE = 1'b1; UP_GAME_STATE = 1'b0; DOWN_GAME_STATE = 1'b01;
+		    #10 LEFT_GAME_STATE = 1'b1; RIGHT_GAME_STATE = 1'b0; UP_GAME_STATE = 1'b0; DOWN_GAME_STATE = 1'b0;
       
       	    	#20 RESET_GAME_STATE = 1'b1;
       	
