@@ -8,8 +8,9 @@ module tb_random_generator;
     	//clock
 	    reg CLK;
     	// random_generator
-	    reg CLK_RANDOM_GENERATOR, RESET_RANDOM_GENERATOR;
-  	    wire [7:0] RAND_NUM_RANDOM_GENERATOR;
+	    reg CLK_RANDOM_GENERATOR;
+	    reg RESET_RANDOM_GENERATOR;
+ 	    wire [7:0] RAND_NUM_RANDOM_GENERATOR;
 
 
 
