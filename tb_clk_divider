@@ -8,8 +8,10 @@ module tb_clk_divider;
 	    reg CLK;
 
     	// clk_divider
-	    reg CLK_CLK_DIVIDER, SIZE_CLK_DIVIDER;
-  	  wire OUT_VGA_CLK_DIVIDER, OUT_GAME_CLK_DIVIDER;
+	    	reg CLK_CLK_DIVIDER;
+		reg SIZE_CLK_DIVIDER;
+  	  	wire OUT_VGA_CLK_DIVIDER;
+		wire OUT_GAME_CLK_DIVIDER;
 
     //Module instantiation
 	      clk_divider clk_divider (.CLK(CLK_CLK_DIVIDER), .SIZE(SIZE_CLK_DIVIDER), .VGA_CLK(OUT_VGA_CLK_DIVIDER), .GAME_CLK(OUT_GAME_CLK_DIVIDER));
