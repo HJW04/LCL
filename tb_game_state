@@ -7,8 +7,14 @@ module tb_game_state;
 	      //clock
 	      reg CLK;
         // apple_generator
-	      reg CLK_GAME_STATE, RESET_GAME_STATE, LEFT_GAME_STATE, RIGHT_GAME_STATE, UP_GAME_STATE, DOWN_GAME_STATE, [4:0] SIZE_GAME_STATE;
-	      wire [1:0] OUT_GAME_STATE;
+	      	reg CLK_GAME_STATE;
+		reg RESET_GAME_STATE;
+		reg LEFT_GAME_STATE;
+		reg RIGHT_GAME_STATE;
+		reg UP_GAME_STATE;
+		reg DOWN_GAME_STATE;
+		reg [4:0] SIZE_GAME_STATE;
+	      	wire [1:0] OUT_GAME_STATE;
 
 
 
