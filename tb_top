@@ -1,3 +1,4 @@
+
 `timescale 1ns/1ns
 
 module tb_top;
@@ -7,19 +8,27 @@ module tb_top;
 
 	// top
 		//Board base clock, Reset button, Direction button
-		reg CLK_TOP, RESET_TOP, LEFT_TOP, RIGHT_TOP, UP_TOP, DOWN_TOP;
-		wire [3:0] OUT_VGA_R_TOP, [3:0] OUT_VGA_G_TOP, [3:0] OUT_VGA_B_TOP;
+		reg CLK_TOP;
+		reg RESET_TOP;
+		reg LEFT_TOP;
+		reg RIGHT_TOP;
+		reg UP_TOP;
+		reg DOWN_TOP;
+		wire [3:0] OUT_VGA_R_TOP;
+		wire [3:0] OUT_VGA_G_TOP;
+		wire [3:0] OUT_VGA_B_TOP;
 		//VGA Sync
 	  	wire OUT_HS_TOP, OUT_VS_TOP;
 		//7-seg
-		wire [1:0] OUT_DIGIT_TOP, [7:0] OUT_SEG_TOP;
+		wire [1:0] OUT_DIGIT_TOP;
+		wire [7:0] OUT_SEG_TOP;
 
 
 
 	//Module instantiation
 		top top(.CLK(CLK_TOP), .RESET(RESET_TOP), 
 			.LEFT(LEFT_TOP), .RIGHT(RIGHT_TOP), .UP(UP_TOP), .DOWN(DOWN_TOP), 
-			.vga_r(OUT_VGA_R_TOP_, .vga_g( OUT_VGA_G_TOP), .vga_b(OUT_VGA_B_TOP),
+			.vga_r(OUT_VGA_R_TOP), .vga_g( OUT_VGA_G_TOP), .vga_b(OUT_VGA_B_TOP),
 			.hs(OUT_HS_TOP), .vs(OUT_VS_TOP),
 			.digit(OUT_DIGIT_TOP), .seg(OUT_SEG_TOP));
 
@@ -45,5 +54,3 @@ module tb_top;
 
 
 endmodule
-
-
