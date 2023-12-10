@@ -32,11 +32,11 @@ module tb_game_state;
       	initial 
       	begin	
       		 
-      		 // Test pattern for game_state
-      		    #10 LEFT_GAME_STATE = 1'b0, RIGHT_GAME_STATE = 1'b0, UP_GAME_STATE = 1'b0, DOWN_GAME_STATE = 1'b1;
-              #10 LEFT_GAME_STATE = 1'b0, RIGHT_GAME_STATE = 1'b0, UP_GAME_STATE = 1'b1, DOWN_GAME_STATE = 1'b0;
-              #10 LEFT_GAME_STATE = 1'b0, RIGHT_GAME_STATE = 1'b1, UP_GAME_STATE = 1'b0, DOWN_GAME_STATE = 1'b0;
-              #10 LEFT_GAME_STATE = 1'b1, RIGHT_GAME_STATE = 1'b0, UP_GAME_STATE = 1'b0, DOWN_GAME_STATE = 1'b0;
+      		// Test pattern for game_state
+      		#10 LEFT_GAME_STATE = 1'b0, RIGHT_GAME_STATE = 1'b0, UP_GAME_STATE = 1'b0, DOWN_GAME_STATE = 1'b1;
+		#10 LEFT_GAME_STATE = 1'b0, RIGHT_GAME_STATE = 1'b0, UP_GAME_STATE = 1'b1, DOWN_GAME_STATE = 1'b0;
+              	#10 LEFT_GAME_STATE = 1'b0, RIGHT_GAME_STATE = 1'b1, UP_GAME_STATE = 1'b0, DOWN_GAME_STATE = 1'b0;
+              	#10 LEFT_GAME_STATE = 1'b1, RIGHT_GAME_STATE = 1'b0, UP_GAME_STATE = 1'b0, DOWN_GAME_STATE = 1'b0;
       
       	    	#20 RESET_GAME_STATE = 1'b1;
       	
