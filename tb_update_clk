@@ -2,32 +2,37 @@
 
 module tb_clk_a;
 
+
+
     // module declaration
 
     	//clock
 	    reg CLK;
 
     	// clk_a
-	    reg CLK_A;
-  	    wire CLK2;
+	    reg CLK_CLK_A;
+  	    wire CLK2_CLK_A;
+
+
 
     //Module instantiation
-	  clk_a clk_a (.clk(CLK_A), .clk2(CLK2);
+	  clk_a clk_a (.clk(CLK_CLK_A), .clk2(CLK2_CLK_A);
+
+
 
 	initial
 	begin
-		CLK_A = 1'b0;
+		forever
+        	begin
+			#10 CLK = !CLK;
+        	end
 	end
 
 
 		 
 	initial
 	begin
-
 		// Test pattern for random generator
-
-	    	#10 RESET_RANDOM_GENERATOR = 1'b1;
-		
 	end
 
 
