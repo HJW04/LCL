@@ -27,18 +27,10 @@ module tb_clk_divider;
 		begin
 
         		// Test pattern for clk_divider
-        		#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b1;
-        	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b1, DOWN_MOVE = 1'b0;
-        	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b1, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
-        	    	#10 LEFT_MOVE = 1'b1, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
-        
-        	    	#20 RESET_MOVE = 1'b1;
-        	
-        	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b1;
-        	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b1, DOWN_MOVE = 1'b0;
-        	    	#10 LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b1, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
-        	    	#10 LEFT_MOVE = 1'b1, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
-        		
+        		#10 SIZE_CLK_DIVIDER = 0;
+        		for (count = 0; count <15; count = count +1)
+		  		#10 SIZE = count;
+        	    	
         	end
 	
 endmodule
