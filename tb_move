@@ -12,7 +12,7 @@ module tb_move;
   	wire [1:0] OUT_DIR_MOVE;
 
     //Module instantiation
-	move move(.CLK(CLK_MOVE), .RESET(RESET_MOVE), .LEFT(LEFT_MOVE), .RIGHT(RIGHT_MOVE), .UP(UP_MOVE), .DOWN(DOWN_MOVE));
+	move move(.CLK(CLK_MOVE), .RESET(RESET_MOVE), .LEFT(LEFT_MOVE), .RIGHT(RIGHT_MOVE), .UP(UP_MOVE), .DOWN(DOWN_MOVE), .DIR(OUT_DIR_MOVE);
 
 	initial
 	begin
@@ -20,7 +20,7 @@ module tb_move;
 		begin
 			#10 CLK = !CLK;
 		end
-		CLK_MOVE = 1'b0, RESET_MOVE = 1'b0, LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
+		RESET_MOVE = 1'b0, LEFT_MOVE = 1'b0, RIGHT_MOVE = 1'b0, UP_MOVE = 1'b0, DOWN_MOVE = 1'b0;
 	end
 		 
 	initial
