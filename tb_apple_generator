@@ -1,31 +1,42 @@
 `timescale 1ns/1ns
-
 module tb_apple_generator;
+
+
 
     // module declaration
 	//clock
 	reg CLK;
-
         // apple_generator
-	reg CLK_APPLE, RESET_APPLE;
+	reg CLK_APPLE, RESET_APPLE, EATEN_APPLE;
 	wire [7:0] OUT_X_APPLE, [7:0] OUT_Y_APPLE;
 
+
+
     //Module instantiation
-	 apple_generator apple_generator (.CLK(CLK_APPLE), .RESET(RESET_APPLE));
+
+	apple_generator apple_generator (.CLK(CLK_APPLE), .RESET(RESET_APPLE), .EATEN(EATEN_APPLE), .X_APPLE(OUT_X_APPLE), .Y_APPLE(OUT_Y_APPLE));
+
+
 
 	initial
 	begin
-		 RESET_APPLE = 1'b0;
-		
+		forever
+		begin
+			#10 CLK = !CLK;
+		end
+		RESET_APPLE = 1'b0;
+		EATEN_APPLE = 1'b0;
 	end
-	
+
+
+
 	initial 
 	begin	
 		 
 		 // Test pattern for apple_generator
-		#10 RESET_APPLE = 1'b1;	 
-		
-
+		#10 EATEN_APPLE = 1'b1;
 	end
-	
+
+
+
 endmodule
