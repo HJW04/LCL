@@ -1,3 +1,4 @@
+
 `timescale 1ns/1ns
 
 module tb_clk_a;
@@ -16,7 +17,7 @@ module tb_clk_a;
 
 
     //Module instantiation
-	  clk_a clk_a (.clk(CLK_CLK_A), .clk2(CLK2_CLK_A);
+	  clk_a clk_a (.clk(CLK_CLK_A), .clk2(CLK2_CLK_A));
 
 
 
