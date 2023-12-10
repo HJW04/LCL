@@ -1,0 +1,35 @@
+`timescale 1ns/1ns
+
+module tb_clk_a;
+
+    // module declaration
+
+    	//clock
+	    reg CLK;
+
+    	// clk_a
+	    reg CLK_A;
+  	    wire CLK2;
+
+    //Module instantiation
+	  clk_a clk_a (.clk(CLK_A), .clk2(CLK2);
+
+	initial
+	begin
+		CLK_A = 1'b0;
+	end
+
+
+		 
+	initial
+	begin
+
+		// Test pattern for random generator
+
+	    	#10 RESET_RANDOM_GENERATOR = 1'b1;
+		
+	end
+
+
+	
+endmodule
