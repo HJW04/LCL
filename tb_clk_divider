@@ -9,10 +9,10 @@ module tb_clk_divider;
 
     	// clk_divider
 	    reg CLK_CLK_DIVIDER, SIZE_CLK_DIVIDER;
-  	  wire OUT_VGA_CLK, OUT_GAME_CLK;
+  	  wire OUT_VGA_CLK_DIVIDER, OUT_GAME_CLK_DIVIDER;
 
     //Module instantiation
-	      clk_divider clk_divider (.CLK(CLK_CLK_DIVIDER), .SIZE(SIZE_CLK_DIVIDER), .VGA_CLK(OUT_VGA_CLK), .GAME_CLK(OUT_GAME_CLK));
+	      clk_divider clk_divider (.CLK(CLK_CLK_DIVIDER), .SIZE(SIZE_CLK_DIVIDER), .VGA_CLK(OUT_VGA_CLK_DIVIDER), .GAME_CLK(OUT_GAME_CLK_DIVIDER));
 
       	initial
       	begin
@@ -29,7 +29,7 @@ module tb_clk_divider;
         		// Test pattern for clk_divider
         		#10 SIZE_CLK_DIVIDER = 0;
         		for (count = 0; count <15; count = count +1)
-		  		#10 SIZE = count;
+		  		#10 SIZE_CLK_DIVIDER = count;
         	    	
         	end
 	
