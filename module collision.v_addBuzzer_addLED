@@ -27,7 +27,7 @@ module collision(snakeBody,snakeHead,border,game_over,VGA_clk,update,start,xCoun
 always @(check_size) 
 begin 
 
-  LED <= 2**(check_size/2) - 1;
+  LED <= 2**(check_size/2) - 1;   // [check_size : LED] = [0,1 : 0], [2,3 : 1], [4,5 : 2], ... 
 
 if(check_size<=9)
       seg2 <= ~7'b0111111;
