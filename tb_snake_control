@@ -52,9 +52,19 @@ module tb_snake_control;
 		 // Test pattern for snake_control 
 		#20 RESET = 1'b0;
     		#20 RESET = 1'b1;
-    		#10 R = 1'b1;
+    		#10 L = 1'b1; R = 1'b0; U = 1'b0; D = 1'b0;
+		#10 L = 1'b0; R = 1'b1; U = 1'b0; D = 1'b0;
+		#10 L = 1'b0; R = 1'b0; U = 1'b1; D = 1'b0;
+		#10 L = 1'b0; R = 1'b0; U = 1'b0; D = 1'b1;
     		for(count = 1; count < 31;count = count + 1) begin
-    		  # 50 SIZE = count;
+    		  #50 SIZE = count;
+
+		#50 EATEN = 1'b1;
+
+		#10 X_APPLE[0] = 0; Y_APPLE[0] = 0;
+		#10 X_SNAKE[0] = 0; Y_SNAKE[0] = 0;
+
+		#50 GAME_OVER = 1'b0;
     		
 		 
 	end
