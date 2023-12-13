@@ -7,21 +7,28 @@ module tb_snake_control;
     // module declaration
 	//clock
 	reg CLK;
+	reg RESET;
+	reg [1:0] DIR;
+	reg [9:0] X_ADDR;
+	reg [9:0] Y_ADDR;
+	reg [9:0] X_APPLE;
+	reg [9:0] Y_APPLE;
+	
+	wire [4:0] SIZE;
+	wire GAME_OVER;
+	wire EATEN;
+  	wire R;
+  	wire G;
+	wire B;
+	wire reg LED1;
+	wire reg LED2;
+	wire reg LED3;
 
-        // snake_control
-	reg CLK_SNAKE; 
-	reg RESET_SNAKE;
-	reg [1:0] M_STATE_SNAKE;
-	reg [1:0] N_STATE_SNAKE;
-	reg [9:0] X_ADDR_SNAKE;
-	reg [8:0] Y_ADDR_SNAKE;
-	wire SNAKEHEAD_SNAKE;
-	wire SNAKEBODY_SNAKE;
 
 
 
     //Module instantiation
-	 snake_control snake_control (.CLK(CLK_SNAKE), .RESET(RESET_SNAKE), .M_STATE(M_STATE_SNAKE), .N_STATE(N_STATE_SNAKE), .X_ADDR(X_ADDR_SNAKE), .Y_ADDR(Y_ADDR_SNAKE), .SNAKEHEAD(SNAKEHEAD_SNAKE), .SNAKEBODY(SNAKEBODY_SNAKE));
+	 snake_control snake_control (.CLK(CLK), .RESET(RESET), .DIR(DIR), .X_ADDR(X_ADDR), .Y_ADDR(Y_ADDR), .X_APPLE(X_APPLE), .Y_APPLE(Y_APPLE), .SIZE(SIZE), .);
 
 
 
