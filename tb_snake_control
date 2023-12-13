@@ -45,7 +45,9 @@ module tb_snake_control;
 	    	L = 1'b0;
 	    	R = 1'b0;
 	    	U = 1'b0;
-	    	D = 1'b0;		
+	    	D = 1'b0;	
+		// #10 X_APPLE[0] = 100; Y_APPLE[0] = 100;
+		// #10 X_SNAKE[0] = 200; Y_SNAKE[0] = 200;
 	end
 
 
@@ -59,14 +61,21 @@ module tb_snake_control;
 		#10 L = 1'b0; R = 1'b1; U = 1'b0; D = 1'b0;
 		#10 L = 1'b0; R = 1'b0; U = 1'b1; D = 1'b0;
 		#10 L = 1'b0; R = 1'b0; U = 1'b0; D = 1'b1;
-    		// for(count = 1; count < 31;count = count + 1) begin
-    		//   #50 SIZE = count;
-
+    		
 		#50 EATEN = 1'b1;
 		#50 EATEN = 1'b0;
+		// for(count = 1; count < 31;count = count + 1) begin
+    		//   #50 SIZE = count;
 
-		// #10 X_APPLE[0] = 0; Y_APPLE[0] = 0;
-		// #10 X_SNAKE[0] = 0; Y_SNAKE[0] = 0;
+		// #10 X_ADDR[0] = 0; Y_ADDR[0] = 0;
+		// #10 X_ADDR[0] = 100; Y_ADDR[0] = 100;
+		// #10 X_ADDR[0] = 200; Y_ADDR[0] = 200;
+		
+		// #10 X_APPLE[0] = 300; Y_APPLE[0] = 300;
+		// #10 X_SNAKE[0] = 300; Y_SNAKE[0] = 300;
+		// #10 X_ADDR[0] = 300; Y_ADDR[0] = 300;
+		
+		
 
 		#50 GAME_OVER = 1'b1;
     		
