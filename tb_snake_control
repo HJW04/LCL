@@ -36,7 +36,13 @@ module tb_snake_control;
 
 	initial
 	begin
-		 RESET_SNAKE = 1'b0; M_STATE_SNAKE = 2'b00; N_STATE_SNAKE  = 2'b00; X_ADDR_SNAKE = 10'b00_0000_0000; Y_ADDR_SNAKE = 9'b0_0000_0000;		
+		CLK = 1'b0;
+	    	RESET = 1'b1;
+	    	GAME_OVER = 1'b0;
+	    	L = 1'b0;
+	    	R = 1'b0;
+	    	U = 1'b0;
+	    	D = 1'b0;		
 	end
 
 
@@ -44,7 +50,13 @@ module tb_snake_control;
 	initial 
 	begin	
 		 // Test pattern for snake_control 
-		#10 RESET_SNAKE = 1'b0; M_STATE_SNAKE = 2'b00; N_STATE_SNAKE  = 2'b00; X_ADDR_SNAKE = 10'b00_0000_0000; Y_ADDR_SNAKE = 9'b0_0000_0000; 
+		#20 RESET = 1'b0;
+    		#20 RESET = 1'b1;
+    		#10 R = 1'b1;
+    		for(count = 1; count < 31;count = count + 1) begin
+    		  # 50 SIZE = count;
+    		
+		 
 	end
 
 
