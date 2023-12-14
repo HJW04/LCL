@@ -1,0 +1,70 @@
+module apple_generator(
+  input CLK,
+  input RESET,
+  
+  //if prev apple is eaten, update apple pos
+  input EATEN,
+  
+  output reg [9:0] X_APPLE,
+  output reg [9:0] Y_APPLE
+  );
+
+  //prev pos
+  reg [9:0] prev_x;
+  reg [9:0] prev_y;
+
+  //random pos
+  wire [9:0] rand_x;
+  wire [9:0] rand_y;
+  reg [9:0] appleX;
+  reg [9:0] appleY; 
+  //8bit random number generate
+  random_generator_x u_random_generator_x(
+    .CLK(CLK),
+    .RESET(RESET),
+    .RAND_NUM(rand_x)
+    );
+
+  random_generator_y u_random_generator_y(
+    .CLK(CLK),
+    .RESET(RESET),
+    .RAND_NUM(rand_y)
+    );
+  
+  //move apple inside border
+  always@(rand_x or rand_y) begin
+    appleX = rand_x;
+    appleY = rand_y;
+    if(appleX < 10'd30) begin
+     appleX <= appleX + 10'd30;
+    end
+    if(appleY < 10'd30) begin
+     appleY <= appleY + 10'd30;
+    end
+    if(appleX >= 10'd610) begin
+     appleX <= appleX - 10'd30;
+    end
+    if(appleY >= 10'd610) begin
+      appleY <= appleY - 10'd30;
+    end
+  end
+
+  always@(X_APPLE or Y_APPLE) begin
+    prev_x = X_APPLE;
+    prev_y = Y_APPLE;
+  end
+
+ always @(*) begin
+    if (!RESET) begin
+        X_APPLE = 10'd0;
+        Y_APPLE = 10'd0;
+    end 
+    else if (EATEN) begin
+        X_APPLE = appleX;
+        Y_APPLE = appleY;
+    end else begin
+        X_APPLE = prev_x;
+        Y_APPLE = prev_y;
+    end
+   end
+endmodule
