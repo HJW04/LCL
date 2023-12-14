@@ -2,30 +2,32 @@
 
 module tb_random_generator;
 
-
-
     // module declaration
-    	//clock
-	    reg CLK;
+
     	// random_generator
-	    reg CLK_RANDOM_GENERATOR;
-	    reg RESET_RANDOM_GENERATOR;
- 	    wire [7:0] RAND_NUM_RANDOM_GENERATOR;
+	    reg CLK;
+	    reg RESET;
+ 	    wire [9:0] RAND_NUM;
 
 
 
     //Module instantiation
-	  random_generator random_generator (.CLK(CLK_RANDOM_GENERATOR), .RESET(RESET_RANDOM_GENERATOR), .RAND_NUM(RAND_NUM_RANDOM_GENERATOR));
+	  random_generator random_generator (.CLK(CLK), .RESET(RESET), .RAND_NUM(RAND_NUM));
 
 
-
+  initial
+	begin
+		
+   	CLK = 1'b0;
+		RESET = 1'b0;
+	end
+	
 	initial
 	begin
 		forever
         	begin
         		#10 CLK = !CLK;
         	end
-		RESET_RANDOM_GENERATOR = 1'b0;
 	end
 
 
@@ -33,9 +35,13 @@ module tb_random_generator;
 	initial
 	begin
 		// Test pattern for random generator
-	    	#10 RESET_RANDOM_GENERATOR = 1'b1;
+	    	#10 RESET = 1'b1;
+	    	#200 RESET = 1'B0;
 	end
 
+
+
+endmodule
 
 
 endmodule
