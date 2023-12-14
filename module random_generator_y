@@ -1,0 +1,39 @@
+//random number generate by lfsr
+
+module random_generator_y(
+  input CLK,
+  input RESET,
+  output [9:0] RAND_NUM
+  );
+
+  parameter seed = 10'b100000;
+  
+  reg [9:0] LFSR;
+  
+  initial begin
+    LFSR = seed;
+  end
+  
+  always@(posedge CLK) begin
+    if(RESET == 1'b0) begin
+      LFSR = seed;
+    end else begin
+  
+    LFSR <= LFSR << 1;
+    LFSR[0] <= LFSR[8] ^ ~LFSR[7] ^ ~LFSR[5] ^ LFSR[4];
+    LFSR[9] <= 1'b0;
+    LFSR[8] <= 1'b0;
+    LFSR[5] <= 1'b1;
+    if(LFSR>=900) begin
+      LFSR <= LFSR - 900;
+    end else if(LFSR >= 450) begin
+      LFSR <= LFSR - 450;
+    end else if(LFSR < 30) begin
+      LFSR <= LFSR + 30;
+  end
+end
+
+
+  assign RAND_NUM = LFSR;
+
+endmodule
