@@ -1,5 +1,5 @@
 //random number generate by lfsr
-
+ 
 module random_generator_x(
   input CLK,
   input RESET,
