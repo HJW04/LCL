@@ -1,57 +1,62 @@
+`timescale 1ns/1ns
+module tb_apple_generator;
 
-module apple_generator(
-  input CLK,
-  input RESET,
-  
-  //if prev apple is eaten, update apple pos
-  input EATEN,
-  
-  output reg [9:0] X_APPLE,
-  output reg [9:0] Y_APPLE
-  );
 
-  //prev pos
-  reg [9:0] prev_x;
-  reg [9:0] prev_y;
 
-  //random pos
-  wire [9:0] rand_x;
-  wire [9:0] rand_y;
-  reg [9:0] appleX;
-  reg [9:0] appleY; 
-  //8bit random number generate
-  random_generator_x u_random_generator_x(
-    .CLK(CLK),
-    .RESET(RESET),
-    .RAND_NUM(rand_x)
-    );
+    // module declaration
+	//clock
+	reg CLK;
 
-  random_generator_y u_random_generator_y(
-    .CLK(CLK),
-    .RESET(RESET),
-    .RAND_NUM(rand_y)
-    );
-  
-  //move apple inside border
-  always@(rand_x or rand_y) begin // get random number => save the value 
-    appleX = rand_x;
-    appleY = rand_y;
-  end
+	reg RESET; 
+	reg EATEN;
+	wire [7:0] X_APPLE;
+	wire [7:0] Y_APPLE;
 
-  always@(X_APPLE or Y_APPLE) begin // generate new apple => save the value
-    prev_x = X_APPLE;
-    prev_y = Y_APPLE;
-  end
 
-always @(EATEN) begin
-  if(RESET)begin
-        X_APPLE = 10'd100;
-        Y_APPLE = 10'd100;
-  end else begin
-        X_APPLE = appleX;
-        Y_APPLE = appleY;
- 
-  end
-end
+
+    //Module instantiation
+
+	apple_generator apple_generator (.CLK(CLK), .RESET(RESET), .EATEN(EATEN), .X_APPLE(X_APPLE), .Y_APPLE(Y_APPLE));
+	random_generator_x random_generator_x (.CLK(CLK), .RESET(RESET), .RAND_NUM(RAND_NUM));
+	random_generator_y random_generator_y (.CLK(CLK), .RESET(RESET), .RAND_NUM(RAND_NUM));
+
+
+  initial
+	begin
+		CLK = 1'b0;
+		RESET = 1'b1;
+		EATEN = 1'b0;
+	end
+	
+	
+	
+	initial
+	begin
+		forever
+		begin
+			#10 CLK = !CLK;
+		end
+	end
+
+
+
+	initial 
+	begin	
+		 
+		 // Test pattern for apple_generator
+		 #10 RESET = 1'b0;
+		#30 EATEN = 1'b1;
+		#50 EATEN = 1'b0;
+		#100 EATEN = 1'b1;
+		#200 EATEN = 1'b0;
+		
+		#100 RESET = 1'b1;
+		#30 EATEN = 1'b1;
+		#50 EATEN = 1'b0;
+		#100 EATEN = 1'b1;
+		#200 EATEN = 1'b0;
+	end
+
+
+
 endmodule
-
