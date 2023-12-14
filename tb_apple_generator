@@ -1,45 +1,57 @@
-`timescale 1ns/1ns
-module tb_apple_generator;
 
+module apple_generator(
+  input CLK,
+  input RESET,
+  
+  //if prev apple is eaten, update apple pos
+  input EATEN,
+  
+  output reg [9:0] X_APPLE,
+  output reg [9:0] Y_APPLE
+  );
 
+  //prev pos
+  reg [9:0] prev_x;
+  reg [9:0] prev_y;
 
-    // module declaration
-	//clock
-	reg CLK;
-        // apple_generator
-	reg CLK_APPLE;
-	reg RESET_APPLE; 
-	reg EATEN_APPLE;
-	wire [7:0] OUT_X_APPLE;
-	wire [7:0] OUT_Y_APPLE;
+  //random pos
+  wire [9:0] rand_x;
+  wire [9:0] rand_y;
+  reg [9:0] appleX;
+  reg [9:0] appleY; 
+  //8bit random number generate
+  random_generator_x u_random_generator_x(
+    .CLK(CLK),
+    .RESET(RESET),
+    .RAND_NUM(rand_x)
+    );
 
+  random_generator_y u_random_generator_y(
+    .CLK(CLK),
+    .RESET(RESET),
+    .RAND_NUM(rand_y)
+    );
+  
+  //move apple inside border
+  always@(rand_x or rand_y) begin // get random number => save the value 
+    appleX = rand_x;
+    appleY = rand_y;
+  end
 
+  always@(X_APPLE or Y_APPLE) begin // generate new apple => save the value
+    prev_x = X_APPLE;
+    prev_y = Y_APPLE;
+  end
 
-    //Module instantiation
-
-	apple_generator apple_generator (.CLK(CLK_APPLE), .RESET(RESET_APPLE), .EATEN(EATEN_APPLE), .X_APPLE(OUT_X_APPLE), .Y_APPLE(OUT_Y_APPLE));
-
-
-
-	initial
-	begin
-		forever
-		begin
-			#10 CLK = !CLK;
-		end
-		RESET_APPLE = 1'b0;
-		EATEN_APPLE = 1'b0;
-	end
-
-
-
-	initial 
-	begin	
-		 
-		 // Test pattern for apple_generator
-		#10 EATEN_APPLE = 1'b1;
-	end
-
-
-
+always @(EATEN) begin
+  if(RESET)begin
+        X_APPLE = 10'd100;
+        Y_APPLE = 10'd100;
+  end else begin
+        X_APPLE = appleX;
+        Y_APPLE = appleY;
+ 
+  end
+end
 endmodule
+
